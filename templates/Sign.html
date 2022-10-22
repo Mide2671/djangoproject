@@ -1,0 +1,118 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign in</title>
+</head>
+<body>
+    <div id="link">
+<a href="Register" align="right">Don't have an account?Sign up Here.</a>&nbsp;&nbsp;&nbsp;
+<a href="Home">HOME</a>
+</div> 
+<style>
+    a
+    {
+color:white;
+text-decoration: none;
+font-size: large;
+    }
+    body
+    {
+        background-image:url(' {% static 'images\images (2).jpeg'%} ');
+    }
+    #link
+    {
+text-align: right;
+    }
+    #box
+    {
+ position: absolute;
+ background-color:white;
+ border: solid;
+ color: white;
+ top: 155px;
+ left: 800px;
+ height: 300px;
+ width: 350px; 
+ border-bottom-left-radius: 80px;
+ border-top-left-radius: 90px;
+ box-shadow: 10px 10px 13px  black;
+        
+    }
+    .input
+    {
+position: absolute;
+top: 250px;
+left:830px;
+    }
+button
+{
+  position: absolute;
+  top: 400px;
+  border: 1px;
+  left: 1050px;
+  background-color: black;
+  color: white;
+  border-radius:5px;
+  border-radius: 10px;
+}
+button:hover{
+    box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
+    
+}
+    input
+    {
+        width: 300px;
+        height: 20px;  
+    }
+
+#log
+{
+position: absolute;
+top: 178px;
+left: 920px;
+font-size: 30px;
+color:black;
+font-family: 'Times New Roman', Times, serif; 
+    
+}
+
+.text
+{
+    position: absolute;
+    top: 130px;
+    left: 8px;
+    font-family: 'lucida handwriting';
+    font-size: 35px;
+    color:white;
+}
+h5{
+    position:absolute;
+    color:red;
+    top:115px;
+    left:870px;
+  }
+</style>
+    <form action "" method="POST">
+       {% csrf_token%}
+       {%for message in messages%}   <h5> {{message}}</h5>
+ {% endfor %} 
+<div id="box"></div>
+<div id="log">
+    LOGIN
+</div>
+<div class="input">
+<input type="text" value="" name= 'username'placeholder="Email address" required>
+<p><input type="password" value="" name='password' placeholder="Password" required>
+</div>
+<div class="text">
+<i><p style="text-align: center;"><i>foodit</i></p><p style="text-align: center;">Where Amazing Foods</p><p style="text-align: center;">And</p><p>Cookies Are Available At Friendly Price</p></i><P style="text-align:center; color: black;" ><B>THANKS.</B></P>
+</div>
+<button>LOGIN</button>
+
+ </form>
+    
+
+</body>
+</html>

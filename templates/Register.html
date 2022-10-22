@@ -1,0 +1,112 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>login</title>
+</head>
+<body> 
+<div id="link"><a href="Sign">Already have an account?Sign in.</a>&nbsp;&nbsp;&nbsp;<a href="Home">HOME</a></div>
+
+<style>
+  a
+  {
+color: white;
+font-size: large;
+text-decoration: none;
+  }
+  body
+  {
+   background-image:url(' {% static 'images\images (2).jpeg'%} ')
+  }
+#log{
+  position: absolute;
+  left: 850px;
+  top: 210px;
+  border: hidden;
+  
+}
+#box
+{
+  position: absolute;
+ background-color:white;
+ border: solid;
+ color: white;
+ top: 155px;
+ left: 800px;
+ height: 300px;
+ width: 350px; 
+ border-bottom-left-radius: 80px;
+ border-top-left-radius: 90px;
+ box-shadow: 10px 10px 13px  black;
+}
+#link
+{
+  text-align: right;
+}
+.reg
+ {
+position: absolute;
+top: 168px;
+left: 890px;
+font-size: 30px;
+color: black;
+font-family: 'Times New Roman', Times, serif;
+border: none;
+}
+button
+{
+  position: absolute;
+  top: 400px;
+  left: 1050px;
+  background-color:black;
+  color:white;
+  border-radius: 8px;
+}
+button:hover{
+    box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
+}
+input
+{
+width: 270px;
+}
+#about
+{
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  color: white;
+  font-size: 35px;
+  font-family: 'lucida handwriting';
+
+}
+h5{
+  position:absolute;
+  color:red;
+  top:115px;
+  left:870px;
+}
+  </style>
+  <form  method="POST" action="">
+    {% csrf_token %}
+  {%for message in messages%}   <h5> {{message}}</h5>
+ {% endfor %} <div id="box"></div>
+<div id="log">
+
+  <p> <input type="text" value="" name='username' placeholder="Username" required>
+  <p><input type="text" value="" name='email' placeholder="Email" required>
+  <p><input type="password" value="" name='password' placeholder="Password" required >
+    <p><input type="password" value="" name='password2' placeholder="Comfirm Password" required>
+
+</div> 
+<div class="reg">
+  Register Here
+</div>
+<button>Register</button>
+<div id="about">
+  <p style="text-align: center;"><I>JOIN US </I></p>
+  At foodit For Amazing Foods<p style="text-align: center;">  And <p style="text-align: center;"> Cookies.
+  </div>
+</form>
+</body>
+</html>

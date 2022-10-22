@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    header{
+    text-align: center;
+    font-size: large;
+}
+    
+     body{
+    background-image: url(' {% static "images\images (2).jpeg" %} ');
+    }
+    .taste{
+        position:absolute;
+        top: 150px;
+        left: 120px;
+        color: white;
+        
+    }
+    .shop{
+        position: absolute;
+        top:480px;
+        left:250px;
+        height: 45px;
+        width:240px;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: 16px;
+        box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
+    }
+    a{
+        color: white;
+        text-decoration: none;
+       
+        
+    }
+   
+.img{
+    position: absolute;
+    height: 250px;
+    width: 350px;
+    top: 130px;
+    left: 35%;
+    box-shadow: 10px 10px 13px black;
+}
+.mg1{
+    position: absolute;
+    height: 250px;
+    width: 350px;
+    top: 130px;
+    left: 65%;
+    box-shadow: 10px 10px 13px black;
+}
+.mg2{
+    position: absolute;
+    height: 250px;
+    width: 350px;
+    top: 290px;
+    left: 50%;
+    box-shadow: 10px 10px 13px black;
+}
+
+footer{
+    color:white;
+    position: absolute;
+    bottom: 5px;
+    left: 45%;
+}
+a:hover{
+    font-size:large;
+    box-shadow: 10px 10px 13px black;
+}
+        
+</style>
+<body>  {% if user.is_authenticated%}
+    <h4 style="text-align:center ; color:white;"><i> Welcome To FOODIT, &nbsp;{{user.username}}.</i></h4>
+    {%else%}
+    <h4 style="text-align:center ; color:white;"><i>FOODIT</i></h4>
+    {%endif%}
+    <header>
+   {% if user.is_authenticated %}
+    <a href="">Home</a>&nbsp;&nbsp;&nbsp;
+    <a href="menu">Menu</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="logout">Logout</a>
+    {%else%}
+    <a href="Register">Don't have an account? Register here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="Sign">Login here.</a>
+    {% endif %}
+    </header>
+    <main>
+<div class="taste">
+    <h1>
+       <p>This is</p> 
+       <p>What Proper</p>
+       <p>Food Taste</p>
+       <p>Like.</p>
+    </h1>
+    <h6>Awesome Food.Healthy Eating.</h6>
+</div>
+<div class="shop">
+    {% if user.is_authenticated %}
+   <a href="menu">SHOP ALL</a>
+   {%else%} 
+   <a href="Sign">SHOP ALL</a>
+   {%endif%}
+</div>
+    <img class="img" src=" {% static 'images\11.jpeg' %}" alt="">
+    <img class = "mg1" src="{% static 'images\istockphoto-1316145885-612x612.jpg' %}" alt="">
+    <img class = "mg2" src="{% static 'images\istockphoto-1150058166-612x612.jpg' %}" alt="">
+    </main>
+    <footer>
+<h4><i><b>Order Online|Fast delivery|Enjoy Food.</b></i></h4>
+    </footer>
+</body>
+</html>

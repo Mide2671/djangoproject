@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+    header{
+        position: absolute;
+        color: white;
+        font-size: large;
+        left: 2px;
+        top: 2px;
+    }
+   .box{
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    border: solid 1px white;
+    border-radius: 59px;
+    left: 300px;
+    top: 125px;
+    box-shadow: 10px 10px 13px  black;
+   }
+   .box_info{
+    position: absolute;
+    background-color: white;
+    color:black;
+    height: 100px;
+    width: 120px;
+    border-top-left-radius: 35px;
+    top: 480px;
+    left:30px;
+    text-align:center;
+    }
+    .box_info:hover{
+        box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
+    }
+    #box{
+   position: absolute;
+   height: 100px;
+   width: 100px;
+   border-radius: 50%;
+   object-fit: cover;
+   top: 400px;
+   left: 8px;
+   z-index:1;
+   }
+    .text1{
+        position: absolute;
+        color: white;
+        left: 300px;
+        top: 1px;
+        font-family: 'lucida handwriting';
+        font-size: 40px;
+       }
+   #img1{
+          position: absolute;
+          height: 125px;
+          width: 125px;
+          object-fit: cover;
+          left: 312px;
+          top: 162px;
+          border-radius: 10px;
+          box-shadow:10px 10px 13px  black;
+   }
+   .text2{
+        position: absolute;
+        color: white;
+        left: 500px;
+        top: 75px;
+        font-family: 'lucida handwriting';
+        font-size: 40px;
+    }
+   #img2{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    left: 500px;
+    top: 200px;
+    border-radius: 50%;
+    box-shadow:10px 10px 13px  black;
+}
+    .text3{
+        position: absolute;
+        color: white;
+        left: 600px;
+        top: 140px; 
+        font-family: 'lucida handwriting';
+        font-size: 40px;
+    }
+#img3{
+    position: absolute;
+    height: 125px;
+    width: 125px;
+    object-fit: cover;
+    left: 737px;
+    top: 37px;
+    box-shadow:10px 10px 13px  black;
+    border-radius: 10px;
+}
+.box2
+{
+    position: absolute;
+    height: 200px;
+    width: 150px;
+    border: solid 1px white;
+    border-radius: 59px;
+    left: 725px;
+    top: 1px;
+    box-shadow: 10px 10px 13px  black;
+    
+}
+a{
+   color: white;
+   text-decoration: none;
+}
+a:hover{
+    font-size:large;
+    box-shadow: 10px 10px 13px  black;
+}
+footer{
+    color:white;
+    position: absolute;
+    bottom: 5px;
+    left: 45%;
+}
+button{
+    position:absolute;
+    top:79.5px;
+    left:70px;
+    background:white;
+    color:black;
+    border:none;
+}
+button:hover{
+    font-size:15px;
+    box-shadow: 10px 10px 13px black;
+}
+</style>
+<body background="{% static "images\images (2).jpeg" %}">
+    <form method='POST' action= 'order'>
+        {% csrf_token%}
+   <header>
+     <a href="Home">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Home</a>&nbsp;&nbsp;Today menu 😋
+   </header> 
+    <div class="box"></div>
+    <img id="img1" src="{% static 'images\121.jpeg' %} " alt="">
+    <div class="box2"></div>
+    <img id="img2" src=" {% static 'images\11.jpeg' %} " alt="">
+    <img id="img3" src="{% static 'images\istockphoto-1168523170-612x612.jpeg' %} " alt="">
+   <div class="text1"><h2><i>Authentic</i></h2></div> 
+   <div class="text2"><i><h2>Food</h2></i></div>
+   <div class="text3">  <i><h2>Dishes.</h2></i></div>
+
+<footer>
+    <I> ORDER NOW AND ENJOY OUR FOOD.</I>
+</footer>
+{%for food in foods%}
+<img id="box"  src=" {% static 'images\12.jpeg' %} " alt=""> 
+<div class="box_info">
+    <button>Order</button>
+    <br>
+{{food.name}}<br>
+{{food.detail}}
+</div> 
+{%endfor%} 
+</form> 
+</body>
+</html>
