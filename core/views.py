@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
-from . models import Food
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
+
+from .models import Food
+
+
 def Home(request):
     return render(request,'Home.html')
 

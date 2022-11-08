@@ -27,28 +27,32 @@
     box-shadow: 10px 10px 13px  black;
    }
    .box_info{
-    position: absolute;
+    position: relative;
     background-color: white;
     color:black;
     height: 100px;
     width: 120px;
     border-top-left-radius: 35px;
-    top: 480px;
-    left:30px;
+    top: 420px;
     text-align:center;
+    display: inline-block;
+    padding:3px;
+    margin:10px;
+    
     }
     .box_info:hover{
         box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
     }
     #box{
-   position: absolute;
+   position:fixed;
    height: 100px;
    width: 100px;
    border-radius: 50%;
    object-fit: cover;
    top: 400px;
-   left: 8px;
+   left: 12px;
    z-index:1;
+   
    }
     .text1{
         position: absolute;
