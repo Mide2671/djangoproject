@@ -24,9 +24,14 @@
         color: white;
         
     }
+    hr{
+        height:15px;
+        background-color: rgba(134, 53, 10, 0.353);
+        border: none;
+    }
     .shop{
         position: absolute;
-        top:480px;
+        top:500px;
         left:250px;
         height: 45px;
         width:240px;
@@ -37,7 +42,7 @@
         border-radius: 16px;
         box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
     }
-    a{
+    #a{
         color: white;
         text-decoration: none;
        
@@ -75,11 +80,47 @@ footer{
     bottom: 5px;
     left: 45%;
 }
-a:hover{
+#a:hover{
     font-size:large;
     box-shadow: 10px 10px 13px black;
 }
-        
+ .ab{
+    position: relative;
+    top: 600px;
+ } 
+ #aab{
+    position: relative;
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    padding: 5px;
+ }  
+ .conta{
+    position: relative;
+    top: 650px;
+    color:white;
+ } 
+ .abbox1{
+    position: relative;
+    background-color: white;
+    color: black;
+    height: auto;
+    width: fit-content;
+    display: inline-block;
+    margin: 80px;
+    padding: 20px;
+    box-shadow: 10px 10px 13px  black;
+ }   
+ .abbox2{
+    position: relative;
+    background-color: white;
+    color: black;
+    height: auto;
+    width: fit-content;
+    display: inline-block;
+    margin: 80px;
+    padding: 20px;
+    box-shadow: 10px 10px 13px  black;
+ }   
 </style>
 <body>  {% if user.is_authenticated%}
     <h4 style="text-align:center ; color:white;"><i> Welcome To FOODIT, &nbsp;{{user.username}}.</i></h4>
@@ -88,14 +129,16 @@ a:hover{
     {%endif%}
     <header>
    {% if user.is_authenticated %}
-    <a href="">Home</a>&nbsp;&nbsp;&nbsp;
-    <a href="menu">Menu</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="logout">Logout</a>
+    <a id="a" href="">Home</a>&nbsp;&nbsp;&nbsp;
+    <a id="a" href="menu">Menu</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="#contact">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="#about">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="logout">Logout</a>
     {%else%}
-    <a href="Register">Don't have an account? Register here</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="Sign">Login here.</a>
+    <a id="a" href="Register">Don't have an account? Register here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="#contact">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="#about">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a id="a" href="Sign">Login here.</a>
     {% endif %}
     </header>
     <main>
@@ -110,17 +153,64 @@ a:hover{
 </div>
 <div class="shop">
     {% if user.is_authenticated %}
-   <a href="menu">SHOP ALL</a>
+   <a id='a' href="menu">SHOP ALL</a>
    {%else%} 
-   <a href="Sign">SHOP ALL</a>
+   <a id='a' href="Sign">SHOP ALL</a>
    {%endif%}
 </div>
     <img class="img" src=" {% static 'images\11.jpeg' %}" alt="">
     <img class = "mg1" src="{% static 'images\istockphoto-1316145885-612x612.jpg' %}" alt="">
     <img class = "mg2" src="{% static 'images\istockphoto-1150058166-612x612.jpg' %}" alt="">
+   
+    <div class="ab">
+    <hr>
+    <a id="aab" name="about"><i><h3>
+     At FOODIT, we're tied in with presenting crisp food, regardless of whether it implies 
+     going the additional miles. when you stroll through our entryways, we do what we can to 
+     make everybody feel comfortable in light of the fact that our family stretches out through
+     your locale.
+     <p>
+        FOODIT is an organization that is continually developing. From the principal eatery in 2004,
+        we've kept on extending' vision to help other individuals end up effective entrepreneurs by owning
+        an FOODIT establishment. We search for franchisees who are focused on quality, not compromising.
+     </p>
+     <p>
+        Today we can be found in numerous nations and have our sights on extending much more. Be that as it
+        may, regardless of where you discover us, quality will dependably be our formula.
+     </p>
+        We believe in Quality. All around. <br>
+        Quality food can't be made without quality initiative. Find out about the general population driving The 
+        FOODIT...
+     </p></i></h3>
+    </a></div>
+   
+    <div class="conta"><a name="contact"> <hr>
+          <h1>
+            Get in touch. </h1>
+           <h3> Want to get in touch? We'dlove to hear from you. Here's how <br>
+            you can reach us......</h3> 
+        </p>
+        </p>
+        <div class="abbox1">
+            <h1> <p style="text-align:center;" > Talk to sales.</p></h1>
+            <p style="text-align:center;">
+                Interested in FOODIT? just pick up your phone <br>
+                to chat with a member of our sales team to place an order.</p>
+                <p style="text-align:center;">
+                    +2349026716920
+                </p>
+        </div>
+        <div class="abbox2">
+            <h1> <p style="text-align:center;" > Contact Customer Support</p></h1>
+            <p style="text-align:center;">
+                Sometimes you need a little help from your friends. Or a<br>
+                FOODIT support rep. Don't worry...we're here for you.</p>
+                <p style="text-align:center;">
+                    Email: info.foodit@food.com
+                </p>
+       </a> </div>
+    </div>
     </main>
-    <footer>
-<h4><i><b>Order Online|Fast delivery|Enjoy Food.</b></i></h4>
-    </footer>
+
 </body>
 </html>

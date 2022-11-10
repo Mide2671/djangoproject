@@ -26,33 +26,27 @@
     top: 125px;
     box-shadow: 10px 10px 13px  black;
    }
-   .box_info{
-    position: relative;
-    background-color: white;
-    color:black;
-    height: 100px;
-    width: 120px;
-    border-top-left-radius: 35px;
-    top: 420px;
-    text-align:center;
-    display: inline-block;
-    padding:3px;
-    margin:10px;
-    
-    }
-    .box_info:hover{
+   #box_info{
+       position: relative;
+       background-color: white;
+       color: black;
+       float: left;
+       padding: 2px;
+       margin: 25px;
+       top: 420px;
+       width: 120px;
+       height:170px;
+       border-radius: 30px;
+       box-shadow: 10px 10px 13px  black;
+   }
+   
+    #box_info:hover{
         box-shadow: 1px 5px 10px 0 rgb(14, 14, 14);
     }
     #box{
-   position:fixed;
    height: 100px;
    width: 100px;
    border-radius: 50%;
-   object-fit: cover;
-   top: 400px;
-   left: 12px;
-   z-index:1;
-   
    }
     .text1{
         position: absolute;
@@ -128,31 +122,38 @@ a:hover{
     font-size:large;
     box-shadow: 10px 10px 13px  black;
 }
-footer{
-    color:white;
-    position: absolute;
-    bottom: 5px;
-    left: 45%;
-}
+
 button{
     position:absolute;
-    top:79.5px;
-    left:70px;
-    background:white;
-    color:black;
+    top:152px;
+    left:67px;
+    background:rgba(60, 24, 11, 0.946);
+    color:white;
     border:none;
 }
 button:hover{
-    font-size:15px;
+    font-size:12px;
     box-shadow: 10px 10px 13px black;
+}
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.td{
+    position:relative;
+    top: 390px;
 }
 </style>
 <body background="{% static "images\images (2).jpeg" %}">
     <form method='POST' action= 'order'>
         {% csrf_token%}
    <header>
-     <a href="Home">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Home</a>&nbsp;&nbsp;Today menu 😋
+     <a href="Home">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Home</a> <div class="td">
+      Today menu 😋  
+     </div> 
    </header> 
+   <main>
     <div class="box"></div>
     <img id="img1" src="{% static 'images\121.jpeg' %} " alt="">
     <div class="box2"></div>
@@ -161,19 +162,18 @@ button:hover{
    <div class="text1"><h2><i>Authentic</i></h2></div> 
    <div class="text2"><i><h2>Food</h2></i></div>
    <div class="text3">  <i><h2>Dishes.</h2></i></div>
+   {%for food in foods%}
 
-<footer>
-    <I> ORDER NOW AND ENJOY OUR FOOD.</I>
-</footer>
-{%for food in foods%}
-<img id="box"  src=" {% static 'images\12.jpeg' %} " alt=""> 
-<div class="box_info">
-    <button>Order</button>
-    <br>
-{{food.name}}<br>
-{{food.detail}}
-</div> 
-{%endfor%} 
+   <div id="box_info">
+       <img id="box" src =" {{ food.image_url }} " alt="" > 
+       <button >Order</button>
+       <br><p>
+   {{food.name}}
+   <br>
+   ${{food.price}}
+   </div> 
+   {%endfor%} 
+</main>
 </form> 
 </body>
 </html>

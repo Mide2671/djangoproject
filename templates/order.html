@@ -6,6 +6,9 @@
         text-align:center;
         top:220px;
     }
+    h4{
+        color:white;
+    }
     a{
         color: white;
         text-decoration: none;
@@ -17,6 +20,7 @@
 </style>
 <body background="{%static 'images\images (2).jpeg'%}">
     <a href="menu">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;MENU</a>
-    <h1> YOUR FOOD WOULD BE DELIVERED TO YOUR LOCATION IN THE NEXT 10mins.<br>THANKS😊 </h1>
+   <h4> This is the time and date you made the order: {{ time}} </h4>
+    <h1> YOUR FOOD WOULD BE DELIVERED TO YOUR LOCATION IN THE NEXT {{time2}}<br>THANKS😊 </h1>
     
 </body>

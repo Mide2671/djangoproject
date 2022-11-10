@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
+from datetime import datetime
 from .models import Food
 
 
@@ -52,4 +52,5 @@ def logout(request):
     auth.logout(request)
     return redirect('Home')
 def order(request):
-    return render (request,'order.html')
+    time = datetime.now()
+    return render (request,'order.html' ,{'time' : time})
